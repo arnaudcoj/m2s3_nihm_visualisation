@@ -29,8 +29,13 @@ void draw() {
   background(255);
   //in your draw method
   for (int i = 0 ; i < totalCount ; i++) 
-    if (cities[i] != null)
+    if (cities[i] != null && cities[i] != lastPointedCity)
       cities[i].draw();
+      
+  // for the pointed city to be on the foreground
+  if(lastPointedCity != null)
+    lastPointedCity.draw();
+    
   fill(color(0));
   text("Afficher les populations supérieures à " + minPopulationToDisplay, 5., 15.);
 }

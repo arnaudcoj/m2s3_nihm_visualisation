@@ -38,9 +38,21 @@ class City {
     color col;
     
     if(hovered) {
-      col = color(150, 200, mapDensity(density)); 
+      float text_x = screen_x + radius / 2. + 5;
+      float text_y = screen_y;
+      float text_width = textWidth(name);
+      
+      col = color(0, 0, 255, 220);
       fill(col);
-      text(name, screen_x + radius / 2. + 2, screen_y);
+      rect(text_x, text_y, text_width + 5, 20, 3, 6, 12, 18); 
+
+      col = color(0, 0, 0);
+      fill(col);      
+      textAlign(LEFT, BOTTOM);
+      text(name, text_x + 2, text_y + 18);
+      
+      col = color(150, 200, mapDensity(density));
+      fill(col);
     } else {
       col = color(0, 200, mapDensity(density));
       fill(col);
