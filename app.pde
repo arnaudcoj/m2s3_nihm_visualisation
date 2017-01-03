@@ -50,10 +50,15 @@ void keyPressed() {
 void mouseMoved() {
   City pointedCity = pick(mouseX, mouseY);
   if(pointedCity != lastPointedCity) {
+    if(lastPointedCity != null) {
+      lastPointedCity.hovered = false;
+    }
     if(pointedCity != null) {
+      pointedCity.hovered = true;
       println(pointedCity.name);
     }
     lastPointedCity = pointedCity;
+    redraw();
   }
 }
 

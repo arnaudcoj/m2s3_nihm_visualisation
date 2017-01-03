@@ -8,11 +8,10 @@ class City {
   
   float screen_x;
   float screen_y;
-  color col;
   float radius;
   
-  // put a drawing function in here and call from main drawing loop
-
+  boolean hovered = false;
+  
   void readData(String[] columns) { 
     postalcode = int(columns[0]);
     x = float(columns[1]);
@@ -26,7 +25,6 @@ class City {
     minDensity = min(density, minDensity);
     maxDensity = max(density, maxDensity);
     
-    col = color(0, 200, mapDensity(density));
     radius = mapPopulation(population);
     screen_x = mapX(x);
     screen_y = mapY(y);
@@ -35,7 +33,19 @@ class City {
   void draw() {
     if(population < minPopulationToDisplay)
       return;
-    fill(col);
+    
+    
+    color col;
+    
+    if(hovered) {
+      col = color(150, 200, mapDensity(density)); 
+      fill(col);
+      text(name, screen_x + radius / 2. + 2, screen_y);
+    } else {
+      col = color(0, 200, mapDensity(density));
+      fill(col);
+    }
+    
     ellipse(screen_x, screen_y, radius, radius);
     //set((int) mapX(x), (int) mapY(y), black);
   }
@@ -59,7 +69,6 @@ class City {
   boolean contains (int px, int py) {
     if(population < minPopulationToDisplay)
       return false;
-   float radius = mapPopulation(population);
-   return dist(mapX(x), mapY(y), px, py) <= radius + 1;
+   return dist(screen_x, screen_y, px, py) < radius / 2.;
   }
 } 
