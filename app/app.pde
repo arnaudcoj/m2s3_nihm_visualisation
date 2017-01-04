@@ -19,11 +19,17 @@ City cities[];
 City lastPointedCity = null;
 City lastSelectedCity = null;
 
+HSlider slider;
+
 void setup() {
   size(800,900);
   colorMode(HSB, 255);
   readData();
   noStroke();
+  slider = new HSlider(20, 30, 200, 20, 1);
+}
+
+void update() { 
 }
 
 void draw() {
@@ -39,16 +45,22 @@ void draw() {
     
   fill(color(0));
   text("Afficher les populations supérieures à " + minPopulationToDisplay, 5., 15.);
+  
+  slider.update();
+  slider.display();
+  
+  minPopulationToDisplay = map(slider.spos, slider.sposMin, slider.sposMax, 3.125, 100000.);
+  minPopulationToDisplay = constrain(minPopulationToDisplay, 0, 100000.);
 }
 
 void keyPressed() {
   if (key == CODED) {
     if (keyCode == UP) {
-      minPopulationToDisplay *= populationToDisplayCoeff;
+      slider.move(10);
     } else if (keyCode == DOWN) {
-      minPopulationToDisplay *= 1. / populationToDisplayCoeff;
+      slider.move(-10);
     }
-    minPopulationToDisplay = constrain(minPopulationToDisplay, 3.125, 2560000.);
+    
   }
   redraw();
 }
