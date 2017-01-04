@@ -66,9 +66,18 @@ class HSlider {
   }
 
   void display() {
+    noFill();
+    
+    for (float i = xpos; i <= xpos + swidth; i++) {
+      float inter = map(i, xpos, xpos+swidth, 0., 1.);
+      color c = lerpColor(color(0,100,255), color(0,100,100), inter);
+      stroke(c);
+      line(i, ypos, i, ypos + sheight);
+    }
+    //rect(xpos, ypos, swidth, sheight);
+    
     noStroke();
-    fill(204);
-    rect(xpos, ypos, swidth, sheight);
+    
     if (over || locked) {
       fill(0, 0, 0);
     } else {
