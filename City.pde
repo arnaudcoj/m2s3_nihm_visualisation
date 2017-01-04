@@ -11,6 +11,7 @@ class City {
   float radius;
   
   boolean hovered = false;
+  boolean selected = false;
   
   void readData(String[] columns) { 
     postalcode = int(columns[0]);
@@ -37,20 +38,10 @@ class City {
     
     color col;
     
-    if(hovered) {
-      float text_x = screen_x + radius / 2. + 5;
-      float text_y = screen_y;
-      float text_width = textWidth(name);
-      
-      col = color(0, 0, 255, 220);
-      fill(col);
-      rect(text_x, text_y, text_width + 5, 20, 3, 6, 12, 18); 
-
-      col = color(0, 0, 0);
+    if(selected) {
+      col = color(70, 200, mapDensity(density));
       fill(col);      
-      textAlign(LEFT, BOTTOM);
-      text(name, text_x + 2, text_y + 18);
-      
+    } else if (hovered) {
       col = color(150, 200, mapDensity(density));
       fill(col);
     } else {
@@ -60,6 +51,39 @@ class City {
     
     ellipse(screen_x, screen_y, radius, radius);
     //set((int) mapX(x), (int) mapY(y), black);
+  }
+  
+  void drawName() {
+    if(selected) {
+      color col;
+      float text_x = screen_x + radius / 2. + 5;
+      float text_y = screen_y;
+      float text_width = textWidth(name);
+      
+      col = color(70, 35, 255, 220);
+      fill(col);
+      rect(text_x, text_y, text_width + 5, 20, 3, 6, 12, 18); 
+
+      col = color(70, 255, 40);
+      fill(col);      
+      textAlign(LEFT, BOTTOM);
+      text(name, text_x + 2, text_y + 18);
+      
+    } else if(hovered) {
+      color col;
+      float text_x = screen_x + radius / 2. + 5;
+      float text_y = screen_y;
+      float text_width = textWidth(name);
+      
+      col = color(150, 35, 255, 220);
+      fill(col);
+      rect(text_x, text_y, text_width + 5, 20, 3, 6, 12, 18); 
+
+      col = color(150, 255, 40);
+      fill(col);      
+      textAlign(LEFT, BOTTOM);
+      text(name, text_x + 2, text_y + 18);
+    }
   }
 
   float mapX(float x) { 

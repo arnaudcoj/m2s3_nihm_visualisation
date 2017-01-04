@@ -17,6 +17,7 @@ int Y = 2;
 City cities[];
 
 City lastPointedCity = null;
+City lastSelectedCity = null;
 
 void setup() {
   size(800,900);
@@ -29,12 +30,12 @@ void draw() {
   background(255);
   //in your draw method
   for (int i = 0 ; i < totalCount ; i++) 
-    if (cities[i] != null && cities[i] != lastPointedCity)
+    if (cities[i] != null)
       cities[i].draw();
       
   // for the pointed city to be on the foreground
   if(lastPointedCity != null)
-    lastPointedCity.draw();
+    lastPointedCity.drawName();
     
   fill(color(0));
   text("Afficher les populations supérieures à " + minPopulationToDisplay, 5., 15.);
@@ -63,6 +64,21 @@ void mouseMoved() {
       println(pointedCity.name);
     }
     lastPointedCity = pointedCity;
+    redraw();
+  }
+}
+
+void mouseClicked() {
+  City selectedCity = pick(mouseX, mouseY);
+  if(selectedCity != lastSelectedCity) {
+    if(lastSelectedCity != null) {
+      lastSelectedCity.selected = false;
+    }
+    if(selectedCity != null) {
+      selectedCity.selected = true;
+      println(selectedCity.name);
+    }
+    lastSelectedCity = selectedCity;
     redraw();
   }
 }
