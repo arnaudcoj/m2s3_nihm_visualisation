@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Arnaud Cojez : TP NIHM Visualisation</title>
+  </head>
+  <body>
+    <div>
+      <h1 id="tp-visualisation">TP Visualisation</h1>
+      <h4 id="arnaud-cojez">Arnaud Cojez</h4>
+      <p>Le sujet est disponible à cette <a href="http://www.thomaspietrzak.com/enseignement/NIHM/tpvisu3.htm">adresse</a>.</p>
+    </div>
+
+    <div>
+      <h2 id="utilisation">Utilisation</h2>
+      <p>Le projet Processing est téléchargeable <a href="cojez_nihm_visualisation.zip">ici</a>.</p>
+      <p>Pour utiliser l'application, il faut :</p>
+      <ul>
+        <li>télécharger l'archive du projet (lien ci-dessus) ;</li>
+        <li>dézipper l'archive ;</li>
+        <li>lancer Processing ;</li>
+        <li>ouvrir le sketch <code>nihm_visu.pde</code>.</li>
+      </ul>
+    </div>
+
+    <div>
+      <h2 id="visualisations">Visualisations</h2>
+      <ul>
+        <li><p>Les villes sont affichées à l'aide de cercles, en fonction de leur position géographiques ;</p></li>
+        <li><p>Le rayon d'un cercle est défini par la quantité de population habitant dans la ville. Nous pouvons donc, d'un coup d'oeil, distinguer les villes fortement peuplées (et donc importantes) par rapport aux villes faiblement peuplées ;</p></li>
+        <li><p>La couleur du cercle est définie par la densité de population dans la ville. Cette visualisation est plus subtile, mais on comprend &quot;instinctivement&quot; que plus une ville est d'une couleur foncée, plus elle est dense.</p></li>
+      </ul>
+      <div align="middle" class="figure">
+      <img src="img/normal.png" alt="Carte normale" /></br>
+      <small class="caption">Carte normale</small>
+      </div>
+    </div>
+
+    <div>
+      <h2 id="fonctionnalités">Fonctionnalités</h2>
+      <div>
+        <h3 id="survol-dune-ville-par-la-souris">Survol d'une ville par la souris</h3>
+        <p>Lorsque l'on survole une ville avec la souris, celle-ci se colore en bleue, et une étiquette contenant le nom de la ville s'affiche à côté.</p>
+        <div align="middle" class="figure">
+        <img src="img/hovered.png" alt="Paris survolé" /></br>
+        <small class="caption">Paris survolé</small>
+        </div>
+      </div>
+      <div>
+        <h3 id="sélection-dune-ville-à-la-souris">Sélection d'une ville à la souris</h3>
+        <p>Lorsque l'on clique sur une ville, celle-ci se colore en vert. Lorsque l'on sort le curseur de la ville, cette dernière reste selectionnée.</p>
+        <div align="middle" class="figure">
+        <img src="img/selected.png" alt="Paris sélectionné" /></br>
+        <small class="caption">Paris sélectionné</small>
+        </div>
+        <p>Nous pouvons survoler une autre ville (qui se colorera en bleu) tandis que la ville selectionnée reste colorée en vert.</p>
+        <div align="middle" class="figure">
+        <img src="img/selected_hovered.png" alt="Paris sélectionné et Marseille survolé" /></br>
+        <small class="caption">Paris sélectionné et Marseille survolé</small>
+        </div>
+      </div>
+      <div>
+        <h3 id="slider-permettant-de-filtrer-les-villes-en-fonction-du-nombre-dhabitants">Slider permettant de filtrer les villes en fonction du nombre d'habitants</h3>
+        <p>Un slider permettant de filtrer l'affichage des villes en fonction de leur population a été implémenté. Celui-ci s'étend de 3.125 habitants à 100 000 habitants.</p>
+        <div align="middle" class="figure">
+        <img src="img/sup500.png" alt="Villes de + de 500 habitants" /></br>
+        <small class="caption">Villes de + de 500 habitants</small>
+        </div>
+        <div align="middle" class="figure">
+        <img src="img/sup100000.png" alt="Villes de + de 100 000 habitants" /></br>
+        <small class="caption">Villes de + de 100 000 habitants</small>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h2 id="sources">Sources</h2>
+      <p>Certaines parties de code ont été tirées des pages suivantes :</p>
+      <ul>
+        <li><a href="http://www.thomaspietrzak.com/enseignement/NIHM/tpvisu1.htm">tpvisu1</a> ;</li>
+        <li><a href="http://www.thomaspietrzak.com/enseignement/NIHM/tpvisu2.htm">tpvisu2</a> ;</li>
+        <li><a href="http://www.thomaspietrzak.com/enseignement/NIHM/tpvisu3.htm">tpvisu3</a> ;</li>
+        <li><a href="https://processing.org/examples/scrollbar.html">Processing : exemple Scrollbar</a>.</li>
+      </ul>
+    </div>
+  </body>
+</html>
