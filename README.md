@@ -26,7 +26,6 @@ __________________
 
 ![Carte normale](img/normal.png)
 
-
 __________________
 ## Fonctionnalités
 
@@ -53,3 +52,13 @@ Un slider permettant de filtrer l'affichage des villes en fonction de leur popul
 ![Villes de + de 500 habitants](img/sup500.png)
 
 ![Villes de + de 100 000 habitants](img/sup100000.png)
+
+__________________
+## Sources
+
+Certaines parties de code ont été tirées des pages suivantes :
+
+* [tpvisu1](http://www.thomaspietrzak.com/enseignement/NIHM/tpvisu1.htm) ;
+* [tpvisu2](http://www.thomaspietrzak.com/enseignement/NIHM/tpvisu2.htm) ;
+* [tpvisu3](http://www.thomaspietrzak.com/enseignement/NIHM/tpvisu3.htm) ;
+* [Processing : exemple Scrollbar](https://processing.org/examples/scrollbar.html).
